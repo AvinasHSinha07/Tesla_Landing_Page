@@ -1,9 +1,9 @@
-import { Zap, Thermometer, Cpu, Car, DoorOpen } from 'lucide-react';
+import { Zap, Thermometer, Cpu, Car, DoorOpen, AlertCircle } from 'lucide-react';
 import { CoveredItem, FaqItem, RepairCostExample } from './types';
 
 export const REPAIR_COSTS: RepairCostExample[] = [
   { part: 'Heat Pump', cost: 2000 },
-  { part: 'Infotainment', cost: 2500 },
+  { part: 'Infotainment Screen', cost: 2500 },
   { part: 'Steering Rack', cost: 2000 },
   { part: 'On-board Charger', cost: 1500 },
 ];
@@ -12,39 +12,72 @@ export const COVERAGE_DATA: CoveredItem[] = [
   {
     category: 'Electrical & Charging',
     description: 'Common faults once factory cover ends.',
-    items: ['On-board AC charger', 'Charging system components', 'Low-voltage (12V) electrical system'],
+    items: [
+      'On-board AC charger', 
+      'Charging system components', 
+      'Low-voltage (12V) electrical system'
+    ],
     repairCostRange: '£300 – £1,500',
     icon: Zap,
   },
   {
     category: 'Heating & Cooling',
-    description: 'Essential for both battery protection and cabin comfort.',
-    items: ['Heat pump', 'Air conditioning compressor', 'Coolant valves', 'Thermal management'],
+    description: 'Essential for battery protection and comfort.',
+    items: [
+      'Heat pump', 
+      'AC compressor', 
+      'Coolant valves', 
+      'Thermal management'
+    ],
     repairCostRange: '£700 – £2,000',
     icon: Thermometer,
   },
   {
     category: 'Technology & Safety',
-    description: 'Electronics are reliable — but expensive when they fail.',
-    items: ['Main touchscreen', 'Autopilot cameras', 'Sensors', 'ABS modules'],
+    description: 'Electronics are reliable — but expensive.',
+    items: [
+      'Main touchscreen / MCU', 
+      'Autopilot cameras', 
+      'Sensors', 
+      'ABS modules'
+    ],
     repairCostRange: '£400 – £2,500',
     icon: Cpu,
   },
   {
     category: 'Suspension & Steering',
     description: 'One of the highest real-world ownership costs.',
-    items: ['Control arms', 'Bushes', 'Ball joints', 'Steering rack'],
+    items: [
+      'Control arms', 
+      'Bushes', 
+      'Ball joints', 
+      'Steering rack'
+    ],
     repairCostRange: '£800 – £2,000',
-    usp: 'Wear & tear covered up to 80,000 miles',
+    usp: 'Wear & Tear Covered up to 80,000 Miles',
     icon: Car,
   },
   {
     category: 'Convenience',
     description: 'Known Tesla weak points over time.',
-    items: ['Door handles', 'Window regulators', 'Charge port components', 'Tailgate actuators'],
+    items: [
+      'Door handles', 
+      'Window regulators', 
+      'Charge port', 
+      'Tailgate actuators'
+    ],
     repairCostRange: '£350 – £700',
     icon: DoorOpen,
   },
+];
+
+export const EXCLUSIONS = [
+  { item: "High-voltage battery pack", reason: "Covered by Tesla (8yr/100k+ miles)" },
+  { item: "Drive unit / motors", reason: "Covered by Tesla (8yr/100k+ miles)" },
+  { item: "Tyres, brake pads, discs", reason: "Consumable items" },
+  { item: "Cosmetic trim, paint, upholstery", reason: "Non-mechanical" },
+  { item: "Accident damage or misuse", reason: "Insurance matter" },
+  { item: "Software updates", reason: "Non-hardware" },
 ];
 
 export const FAQS: FaqItem[] = [

@@ -1,81 +1,88 @@
 import React from 'react';
-import { ShieldCheck, ChevronRight, Star } from 'lucide-react';
+import { ShieldCheck, ChevronRight, AlertCircle, CheckCircle2 } from 'lucide-react';
 
 const Hero: React.FC = () => {
   return (
-    <section className="relative w-full pt-32 pb-20 lg:pt-40 lg:pb-0 overflow-hidden bg-white">
-      {/* Background Gradient Elements */}
-      <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
-        <div className="absolute top-[-10%] right-[-5%] w-[500px] h-[500px] bg-gray-50 rounded-full blur-3xl opacity-60"></div>
-        <div className="absolute top-[20%] left-[-10%] w-[400px] h-[400px] bg-red-50 rounded-full blur-3xl opacity-40"></div>
-      </div>
-
-      <div className="container mx-auto px-6 lg:px-12 relative z-10">
-        <div className="text-center max-w-4xl mx-auto space-y-6 fade-in-up">
+    <section className="relative w-full min-h-[90vh] flex items-center pt-24 pb-12 bg-white overflow-hidden">
+      <div className="container mx-auto px-6 lg:px-12">
+        <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
           
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-gray-50 border border-gray-100 shadow-sm text-xs font-bold tracking-wider uppercase text-tesla-charcoal mb-4">
-            <span className="w-2 h-2 rounded-full bg-tesla-red animate-pulse"></span>
-            Tesla-Specific Protection
+          {/* Left: Text Content */}
+          <div className="order-2 lg:order-1 space-y-8 fade-in-up">
+            <div className="inline-flex items-center gap-2 px-3 py-1 bg-gray-50 border border-gray-100 rounded-full">
+              <span className="w-2 h-2 rounded-full bg-tesla-red animate-pulse"></span>
+              <span className="text-xs font-bold tracking-widest text-tesla-charcoal uppercase">Tesla-Grade Protection</span>
+            </div>
+
+            <h1 className="text-5xl lg:text-6xl font-display font-bold leading-tight tracking-tight text-tesla-charcoal">
+              Fully protect your Tesla for just over <span className="text-tesla-red">£1 per day</span>.
+            </h1>
+            
+            <p className="text-xl text-gray-500 font-medium leading-relaxed max-w-lg">
+              Clear. Honest. Built for real-world Tesla ownership. Covering the labour and tech risks that actually matter.
+            </p>
+
+            <div className="flex flex-col sm:flex-row gap-4 pt-4">
+              <button className="bg-tesla-red hover:bg-red-700 text-white px-8 py-4 rounded-full font-bold text-lg transition-all shadow-lg hover:shadow-tesla-red/30 flex items-center justify-center gap-2">
+                Get Protected
+                <ChevronRight size={20} />
+              </button>
+              <button className="bg-white border-2 border-gray-100 hover:border-tesla-charcoal text-tesla-charcoal px-8 py-4 rounded-full font-bold text-lg transition-all flex items-center justify-center">
+                View Coverage
+              </button>
+            </div>
+
+            <div className="pt-8 border-t border-gray-100">
+               <div className="flex items-center gap-2 text-sm font-medium text-gray-400 mb-2">
+                 <ShieldCheck size={16} className="text-tesla-red" />
+                 <span>Official Standards</span>
+               </div>
+               <p className="text-sm text-gray-600">
+                 Repairs authorized at any UK Tesla Main Dealer.
+               </p>
+            </div>
           </div>
 
-          <h1 className="text-5xl lg:text-7xl font-display font-extrabold leading-tight tracking-tight text-tesla-charcoal">
-            Protect your Tesla for <br className="hidden md:block" />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-tesla-red to-red-600">
-              just over £1 per day
-            </span>
-          </h1>
+          {/* Right: Visual & Widget */}
+          <div className="order-1 lg:order-2 relative fade-in-up delay-200">
+            {/* Cinematic Car Image */}
+            <div className="relative z-10">
+                <img 
+                  src="https://images.unsplash.com/photo-1617788138017-80ad40651399?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=90" 
+                  alt="Tesla Side Profile" 
+                  className="w-full h-auto object-cover rounded-2xl shadow-2xl"
+                />
+            </div>
 
-          <p className="text-xl text-gray-500 font-medium leading-relaxed max-w-2xl mx-auto">
-             Clear. Honest. Built for real-world ownership. <br className="hidden md:block"/>
-             Covering the labour and tech risks that matter most.
-          </p>
+            {/* Floating Warranty Status Widget */}
+            <div className="absolute -bottom-6 -left-6 lg:bottom-10 lg:-left-12 z-20 bg-white/95 backdrop-blur-xl border border-gray-200 p-6 rounded-2xl shadow-tesla max-w-xs w-full">
+               <div className="flex justify-between items-center mb-4 border-b border-gray-100 pb-3">
+                  <span className="text-xs font-bold text-gray-400 uppercase tracking-wider">Warranty Status</span>
+                  <div className="w-2 h-2 bg-green-500 rounded-full"></div>
+               </div>
+               
+               <div className="space-y-4">
+                  <div className="flex items-start gap-3 opacity-50">
+                     <AlertCircle size={20} className="text-gray-400 shrink-0 mt-0.5" />
+                     <div>
+                        <p className="text-sm font-bold text-gray-500">Factory Cover</p>
+                        <p className="text-xs text-gray-400">Ends 4 yrs / 50k miles</p>
+                     </div>
+                  </div>
+                  <div className="flex items-start gap-3">
+                     <CheckCircle2 size={20} className="text-tesla-red shrink-0 mt-0.5" />
+                     <div>
+                        <p className="text-sm font-bold text-tesla-charcoal">Extended Cover</p>
+                        <p className="text-xs text-green-600 font-medium">Active Protection</p>
+                     </div>
+                  </div>
+               </div>
+            </div>
 
-          <div className="flex flex-col sm:flex-row gap-4 justify-center pt-8 pb-12">
-            <button className="bg-tesla-red hover:bg-red-700 text-white px-10 py-4 rounded-full font-bold text-lg transition-all transform hover:-translate-y-1 shadow-glow flex items-center justify-center gap-2">
-              Get Instant Cover
-              <ChevronRight size={20} strokeWidth={3} />
-            </button>
-            <button className="bg-white border border-gray-200 hover:border-tesla-charcoal text-tesla-charcoal px-10 py-4 rounded-full font-bold text-lg transition-all hover:bg-gray-50 flex items-center justify-center">
-              View Coverage
-            </button>
+            {/* Decorative Background Blob */}
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120%] h-[120%] bg-gradient-radial from-gray-100 to-transparent opacity-50 -z-10 pointer-events-none"></div>
           </div>
-        </div>
 
-        {/* Car Image Container */}
-        <div className="relative mt-8 lg:-mb-24 fade-in-up delay-200">
-             {/* The Car Image - Using a high quality red Tesla Model S style image */}
-             <img 
-               src="https://images.unsplash.com/photo-1560958089-b8a1929cea89?ixlib=rb-4.0.3&auto=format&fit=crop&w=2400&q=90" 
-               alt="Red Tesla Model S" 
-               className="w-full max-w-6xl mx-auto drop-shadow-2xl transform hover:scale-[1.01] transition-transform duration-1000 ease-out"
-             />
-             
-             {/* Floating Badge - Left */}
-             <div className="hidden md:flex absolute top-10 left-4 lg:left-10 bg-white/90 backdrop-blur-md p-4 pr-6 rounded-2xl shadow-tesla border border-white/50 items-center gap-4 fade-in-up delay-300">
-                <div className="bg-green-100 p-3 rounded-full text-green-600">
-                   <ShieldCheck size={24} />
-                </div>
-                <div>
-                   <p className="font-bold text-tesla-charcoal text-sm">Official Standards</p>
-                   <p className="text-xs text-gray-500">Repairs at any UK Tesla Main Dealer</p>
-                </div>
-             </div>
-
-             {/* Floating Badge - Right (Ratings) */}
-             <div className="hidden md:flex absolute top-20 right-4 lg:right-10 bg-white/90 backdrop-blur-md p-4 px-6 rounded-2xl shadow-tesla border border-white/50 items-center gap-3 fade-in-up delay-300">
-                <div className="text-center">
-                   <p className="font-bold text-tesla-charcoal text-2xl leading-none">4.9</p>
-                   <div className="flex text-yellow-400 text-xs mt-1">
-                      <Star size={12} fill="currentColor" />
-                      <Star size={12} fill="currentColor" />
-                      <Star size={12} fill="currentColor" />
-                      <Star size={12} fill="currentColor" />
-                      <Star size={12} fill="currentColor" />
-                   </div>
-                </div>
-                <div className="h-8 w-px bg-gray-200"></div>
-                <p className="text-xs text-gray-500 font-medium max-w-[80px]">Top Rated Coverage</p>
-             </div>
         </div>
       </div>
     </section>

@@ -1,81 +1,85 @@
 import React from 'react';
-import { Wrench, PiggyBank, AlertTriangle, ArrowRight } from 'lucide-react';
-import { REPAIR_COSTS } from '../constants';
+import { Wrench, PiggyBank, Clock, AlertTriangle } from 'lucide-react';
 
 const RealityCheck: React.FC = () => {
   return (
-    <section className="py-24 lg:py-32 bg-tesla-dark text-white relative overflow-hidden">
-      {/* Background accents */}
-      <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-blue-900/10 rounded-full blur-[100px] pointer-events-none"></div>
-      <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-red-900/10 rounded-full blur-[100px] pointer-events-none"></div>
-
-      <div className="container mx-auto px-6 lg:px-12 relative z-10">
-        <div className="grid lg:grid-cols-2 gap-16 items-center mb-20">
-            <div className="space-y-6">
-                <h2 className="text-4xl lg:text-5xl font-display font-bold leading-tight">
-                    The <span className="text-tesla-red">Reality Check</span>.
-                </h2>
-                <p className="text-gray-400 text-lg font-light leading-relaxed max-w-lg">
-                    When the factory warranty ends, the risks shift. It's not usually the battery that costs you money—it's the labour-heavy components and tech.
-                </p>
-                <div className="flex items-center gap-4 text-sm font-medium text-gray-500 pt-4">
-                    <div className="w-12 h-px bg-gray-700"></div>
-                    <span>COMPARISON</span>
-                </div>
-            </div>
+    <section className="py-20 bg-tesla-gray">
+      <div className="container mx-auto px-6 lg:px-12">
+        <div className="max-w-4xl mx-auto">
             
-            {/* The Main Comparison Card */}
-            <div className="bg-white/5 backdrop-blur-lg border border-white/10 rounded-3xl p-8 lg:p-10 relative overflow-hidden group hover:border-white/20 transition-all">
-                <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-tesla-red to-transparent"></div>
-                
-                <div className="grid md:grid-cols-2 gap-8 relative">
-                    {/* Left Side: The Problem */}
-                    <div className="space-y-2">
-                        <div className="flex items-center gap-2 text-red-400 mb-2">
-                            <Wrench size={18} />
-                            <span className="text-xs font-bold uppercase tracking-wider">The Risk</span>
+            <div className="text-center mb-12">
+                <h2 className="text-3xl font-display font-bold text-tesla-charcoal mb-4">The Reality of Repair Costs</h2>
+                <p className="text-gray-600 max-w-2xl mx-auto">
+                    When your Tesla’s non-battery factory cover ends at 4 years or 50,000 miles, the biggest risks aren’t the battery — they’re labour-heavy repairs.
+                </p>
+            </div>
+
+            {/* Comparison Card */}
+            <div className="bg-white rounded-3xl shadow-xl overflow-hidden border border-gray-100">
+                <div className="grid md:grid-cols-2 divide-y md:divide-y-0 md:divide-x divide-gray-100">
+                    
+                    {/* Left: Dealer Reality */}
+                    <div className="p-8 lg:p-12 relative overflow-hidden group">
+                        <div className="absolute top-0 left-0 w-1 h-full bg-gray-200 group-hover:bg-tesla-charcoal transition-colors"></div>
+                        <div className="flex items-center gap-3 mb-6">
+                            <div className="p-2 bg-gray-100 rounded-lg text-tesla-charcoal">
+                                <Wrench size={24} />
+                            </div>
+                            <span className="text-sm font-bold text-gray-400 uppercase tracking-wider">The Risk</span>
                         </div>
-                        <p className="text-4xl font-display font-bold text-white">£150<span className="text-lg text-gray-500 font-normal">/hr</span></p>
-                        <p className="text-sm text-gray-400">Typical Main Dealer Labour Rate</p>
+                        
+                        <div className="mb-6">
+                            <span className="text-5xl font-display font-bold text-tesla-charcoal">£150</span>
+                            <span className="text-xl text-gray-400 font-medium">/hr</span>
+                            <p className="text-sm text-gray-500 mt-2 font-medium">Tesla Main Dealer Labour Rate</p>
+                        </div>
+
+                        <ul className="space-y-3">
+                            <li className="flex items-center gap-2 text-sm text-gray-600">
+                                <Clock size={16} className="text-gray-400" />
+                                <span>Many repairs take 3–6+ hours</span>
+                            </li>
+                            <li className="flex items-center gap-2 text-sm text-gray-600">
+                                <AlertTriangle size={16} className="text-red-500" />
+                                <span>Single fault can exceed <span className="font-bold text-tesla-charcoal">£1,000+</span></span>
+                            </li>
+                        </ul>
                     </div>
 
-                    {/* Divider */}
-                    <div className="hidden md:block absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-px h-16 bg-white/10"></div>
+                    {/* Right: Policy Solution */}
+                    <div className="p-8 lg:p-12 relative overflow-hidden group bg-tesla-charcoal text-white">
+                        <div className="absolute top-0 right-0 w-1 h-full bg-tesla-red"></div>
+                        
+                        {/* Subtle glow */}
+                        <div className="absolute top-[-50%] right-[-50%] w-64 h-64 bg-tesla-red rounded-full blur-[80px] opacity-20 pointer-events-none"></div>
 
-                    {/* Right Side: The Solution */}
-                    <div className="space-y-2">
-                        <div className="flex items-center gap-2 text-green-400 mb-2">
-                            <PiggyBank size={18} />
-                            <span className="text-xs font-bold uppercase tracking-wider">Your Cost</span>
+                        <div className="flex items-center gap-3 mb-6">
+                            <div className="p-2 bg-white/10 rounded-lg text-white">
+                                <PiggyBank size={24} />
+                            </div>
+                            <span className="text-sm font-bold text-gray-400 uppercase tracking-wider">The Solution</span>
                         </div>
-                        <p className="text-4xl font-display font-bold text-white">£1.20<span className="text-lg text-gray-500 font-normal">/day</span></p>
-                        <p className="text-sm text-gray-400">Total protection for peace of mind</p>
-                    </div>
-                </div>
+                        
+                        <div className="mb-6">
+                            <span className="text-5xl font-display font-bold text-white">£1.20</span>
+                            <span className="text-xl text-gray-400 font-medium">/day</span>
+                            <p className="text-sm text-gray-300 mt-2 font-medium">Total Peace of Mind</p>
+                        </div>
 
-                <div className="mt-8 pt-8 border-t border-white/10 flex flex-col md:flex-row md:items-center justify-between gap-4">
-                    <div className="flex items-center gap-3 text-sm text-gray-300">
-                        <div className="bg-red-500/20 p-1.5 rounded text-red-400">
-                             <AlertTriangle size={16} />
-                        </div>
-                        <span>One repair can exceed £1,000+</span>
+                        <p className="text-sm text-gray-300 leading-relaxed">
+                            This cover protects you from labour-heavy repair costs, which is where Tesla ownership often gets expensive.
+                        </p>
                     </div>
-                    <button className="text-white font-medium text-sm flex items-center gap-2 hover:gap-3 transition-all">
-                        See cost breakdown <ArrowRight size={16} />
-                    </button>
+
                 </div>
             </div>
-        </div>
 
-        {/* Cost Examples Grid */}
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-6">
-            {REPAIR_COSTS.map((item, idx) => (
-                <div key={idx} className="bg-white/5 border border-white/10 p-6 rounded-2xl text-center hover:bg-white/10 transition-colors duration-300">
-                    <p className="text-xs text-gray-500 uppercase tracking-widest font-semibold mb-3">Typical Repair</p>
-                    <p className="font-display font-semibold text-white text-lg mb-1">{item.part}</p>
-                    <p className="text-2xl font-bold text-tesla-red">£{item.cost.toLocaleString()}</p>
-                </div>
-            ))}
+            <div className="mt-8 text-center">
+                <p className="text-sm font-bold text-tesla-charcoal">
+                    One medium repair can easily cost more than a full year of cover.
+                </p>
+            </div>
+
         </div>
       </div>
     </section>
